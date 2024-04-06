@@ -13,6 +13,7 @@
     "wrangler": "^3.0.0"
   },
   "dependencies": {
+    "html-entities": "^2.5.2",
     "pxr": "^5.0.0"
   }
 }
