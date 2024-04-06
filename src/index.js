@@ -7,9 +7,24 @@
  *
  * Learn more at https://developers.cloudflare.com/workers/
  */
+const { parxer, render } = require('pxr');
 
 export default {
 	async fetch(request, env, ctx) {
-		return new Response('Hello World!');
+	  const parse = () => {
+	  	return new Promise((resolve, reject) => {
+		  	let input = "<html><h1>HELLO WORLD!</h1></html>";
+		  	parxer({}, input, function(err, fragmentCount, data) {	        			  		
+		  	 	if(err.fragmentErrors) resolve(err)
+		  	 	else resolve(data);
+		  	})
+		  })
+	  }
+	  let newResp = new Response(await parse(), {
+	    headers: {
+	      "Content-Type": "text/html"
+	    }
+	  })	   
+      return newResp;
 	},
-};
+};	
