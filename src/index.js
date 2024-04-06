@@ -39,7 +39,10 @@ export default {
         showErrors: true,
         plugins: [
           parxerPlugins.Url(getCx)
-        ]
+        ],
+        variables: {
+          domain: "www.example.com"
+        }
       };
 
       // Super simple fixed parse
@@ -49,7 +52,7 @@ export default {
           let input = `<html>
             <h1>HELLO WORLD!</h1>
             <p>The following come via parsing of "cx-url" attributes dynamically:</p>            
-            <div cx-url='https://www.example.com'></div>          
+            <div cx-url='https://\${domain}'></div>          
           </html>`;
           parxer(config, input, function(err, fragmentCount, data) {
             if (err.fragmentErrors) resolve(err)

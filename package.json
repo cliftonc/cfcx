@@ -14,6 +14,6 @@
   },
   "dependencies": {
     "html-entities": "^2.5.2",
-    "pxr": "^5.0.0"
+    "pxr": "^6.0.0"
   }
 }
