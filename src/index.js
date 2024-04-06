@@ -10,8 +10,7 @@ export default {
       return new Response('');
     }
 
-    if(url.pathname === '/') {
-
+    if(url.pathname === '/') {      
       function getCxAttr(node, name, defaultAttr) {
         var value = node.attribs[name] || node.attribs['data-' + name];
         if (value) {
@@ -41,7 +40,7 @@ export default {
           parxerPlugins.Url(getCx)
         ],
         variables: {
-          domain: "www.example.com"
+          domain: url.search.replace('?','') || 'www.example.com'
         }
       };
 
@@ -52,13 +51,13 @@ export default {
           let input = `<html>
             <h1>HELLO WORLD!</h1>
             <p>The following come via parsing of "cx-url" attributes dynamically:</p>            
-            <div cx-url='https://\${domain}'></div>          
+            <div cx-url='https://\${domain}' cx-timeout='10000'></div>          
           </html>`;
           parxer(config, input, function(err, fragmentCount, data) {
             if (err.fragmentErrors) resolve(err)
             else resolve(data);
           })
-        })
+        })  
       }
       let newResp = new Response(await parse(), {
         headers: {
