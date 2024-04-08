@@ -49,8 +49,6 @@ export async function backendRequest(request, env, ctx) {
       }}
       Backend(request); 
 
-      console.log(request.backend);
-
       // Now go get the backend content!
       const backendRequest = new Request(request.backend.target)
       const backendFetch = await fetch(backendRequest);
