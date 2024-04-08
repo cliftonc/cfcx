@@ -5,7 +5,8 @@
   "scripts": {
     "deploy": "wrangler deploy",
     "dev": "wrangler dev",
-    "start": "wrangler dev"
+    "start": "wrangler dev",
+    "test": "vitest"
   },
   "devDependencies": {
     "@cloudflare/vitest-pool-workers": "^0.1.0",
@@ -13,7 +14,10 @@
     "wrangler": "^3.0.0"
   },
   "dependencies": {
+    "entities": "1.1.2",
     "html-entities": "^2.5.2",
-    "pxr": "^6.0.0"
+    "itty-router": "^5.0.9",
+    "lodash": "^4.17.21",
+    "pxr": "^7.0.3"
   }
 }
