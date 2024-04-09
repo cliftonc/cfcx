@@ -67,7 +67,7 @@ export default function interrogator({ config, cdn, environment }) {
       header: headers,
       server: config.servers,
       env: environment
-    };
+    };    
 
     _.forIn(requestConfig, function (values, type) {
       _.forIn(values, function (value, key) {

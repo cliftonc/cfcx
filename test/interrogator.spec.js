@@ -1,12 +1,12 @@
 import { describe, it, expect } from "vitest";
 import interrogator from '../src/helpers/interrogator.js';
-import config from '../config/default.json';
+import config from '../config/local.json';
 
 describe("Interrogator", () => {  
   it("can initiate it", async () => {  
   	const environment = 'test';  	
   	const Interrogator = interrogator({ config, environment });
-  	const request = new Request("http://localhost:8787/google?param=test&search=false",
+  	const request = new Request("http://localhost:4321/google?param=test&search=false",
       {
        headers: {
         "x-test": "awesome"
